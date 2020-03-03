@@ -2,8 +2,9 @@ h1 a {
 	color: #FCA205;
 	font-family: 'Lobster';
 }
-h1 {
+h1 .header a{
 	font-family: 'Lobster';
+	color: #000;s
 }
 body {
 	padding-left: 0;
