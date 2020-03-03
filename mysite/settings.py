@@ -25,7 +25,7 @@ SECRET_KEY = 'ura=1tn^2ewn$f8(jw1%+1=(p57015#g9xqu%(c!#p0i!wx_2z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jackphillips.pythonanywhere.com']
+ALLOWED_HOSTS = ['jackphillips.pythonanywhere.com', 'localhost']
 
 
 # Application definition
