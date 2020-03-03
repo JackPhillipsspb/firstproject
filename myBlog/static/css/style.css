@@ -1,11 +1,13 @@
+.header {
+	font-family: 'Lobster';
+	color: #000;
+}
+
 h1 a {
 	color: #FCA205;
 	font-family: 'Lobster';
 }
-h1 .header a{
-	font-family: 'Lobster';
-	color: #000;s
-}
+
 body {
 	padding-left: 0;
 }
@@ -15,6 +17,7 @@ body {
 	margin-top: 0;
 	margin-left: 0;
 	padding: 20px 20px 20px 40px;
+	color: #000;
 }
 .post {
 	padding-left: 20px;
