@@ -127,9 +127,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Настройки почтового сервера
-EMAIL_HOST = 'smtp.spaceweb.ru'
-EMAIL_HOST_USER = 'robot@foodandfilm.info'
-EMAIL_HOST_PASSWORD = 'Wordpress2020'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'jackphillipsspb@gmail.com'
+EMAIL_HOST_PASSWORD = 'Wakeful9831'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-DEFAULT_FROM_EMAIL = 'robot@foodandfilm.info'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

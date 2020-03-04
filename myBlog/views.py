@@ -63,8 +63,8 @@ def create_post(request):
         response_data['form_ok'] = 1
         response_data['result'] = "Сообщение отправлено!"
         
-        #send_mail(subject, " %s %s" % (message, email), 'robot@foodandfilm.info', ['admin@icont-trade.com'], fail_silently=False)
-        send_mail(subject, message, 'robot@foodandfilm.info', ['admin@icont-trade.com'], fail_silently=False)
+        send_mail(subject, " %s %s" % (message, email), 'jackphillipsspb@gmail.com', ['admin@icont-trade.com'], fail_silently=False)
+        
            	
         
         #response_data.update(csrf(request))
