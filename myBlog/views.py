@@ -46,6 +46,10 @@ def post_edit(request, pk):
     return render(request, 'myBlog/post_edit.html', {'form': form})
 
 @csrf_protect
+def subscribe_post(request):
+	pass
+
+@csrf_protect
 def create_post(request):
     if request.method == 'POST':
         name = request.POST.get('name', '')

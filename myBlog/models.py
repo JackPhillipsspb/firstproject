@@ -16,6 +16,23 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
+class SubscribeForm(models.Model):
+	name = models.CharField(max_length=200)
+	email = models.CharField(max_length=200)
+	subscribe_date = models.DateTimeField(blank=True, null=True)
+
+	def publish(self):
+		self.subscribe_date = timezone.now()
+		self.save
+
+	def __str__(self):
+		return self.name
+
+	class Meta():
+		db_table = "Подпичсики"
+		verbose_name = "Подписчики"
+
+
 class zForm(models.Model):
     name = models.CharField(max_length=128, verbose_name="Имя", null=True, blank=True)
     email = models.CharField(verbose_name='email', max_length=256, null=True, blank=True)
