@@ -1,8 +1,13 @@
+from django.http import HttpResponse
+import json
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post
+from .models import Post, zForm
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.core.mail import send_mail
+
 
 # Create your views here.
 def post_list(request):
@@ -39,3 +44,37 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'myBlog/post_edit.html', {'form': form})
+
+@csrf_protect
+def create_post(request):
+    if request.method == 'POST':
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        subject = request.POST.get('subject', '')
+        message = request.POST.get('message', '')
+        response_data = {}
+        a = zForm.objects.create(
+            name=name,
+            email=email,
+            subject=subject,
+            message=message
+        )
+        a.save()
+        response_data['form_ok'] = 1
+        response_data['result'] = "Сообщение отправлено!"
+        
+        send_mail(subject, " %s %s" % (message, email), 'robot@foodandfilm.info', ['admin@icont-trade.com'])
+           	
+        
+        #response_data.update(csrf(request))
+        return HttpResponse(
+            json.dumps(response_data),
+            content_type="application/json"
+        )
+
+
+    else:
+        return HttpResponse(
+            json.dumps({"nothing to see": "this isn`t happening"}),
+            content_type="application/json"
+        )

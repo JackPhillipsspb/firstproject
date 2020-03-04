@@ -15,3 +15,21 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class zForm(models.Model):
+    name = models.CharField(max_length=128, verbose_name="Имя", null=True, blank=True)
+    email = models.CharField(verbose_name='email', max_length=256, null=True, blank=True)
+    subject = models.CharField(max_length=128, verbose_name="Тема", null=True, blank=True)
+    message = models.TextField(max_length=2056, verbose_name="Сообщение", null=True, blank=True)
+    date_pub_forms = models.DateTimeField(null=True, blank=True, verbose_name="Дата сообщения")
+    
+    def publish(self):
+    	self.date_pub_forms = timezone.now()
+    	self.save()
+
+    def __str__(self):
+        return self.name
+
+    class Meta():
+        db_table = "Форма связи"
+        verbose_name = "Форма связи"

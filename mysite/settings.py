@@ -124,3 +124,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# Настройки почтового сервера
+EMAIL_HOST = 'smtp.spaceweb.ru'
+EMAIL_HOST_USER = 'robot@foodandfilm.info'
+EMAIL_HOST_PASSWORD = 'Wordpress2020'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+DEFAULT_FROM_EMAIL = 'robot@foodandfilm.info'
