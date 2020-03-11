@@ -74,6 +74,12 @@ $(function() {
         });
     };
 
+$(function() {
+    $('#subscribe-form').on('submit', function(event){
+        event.preventDefault();
+        create_post();
+    });
+
     function subscribe() {
         var name = $('#name').val()
         var email = $('#email').val()
@@ -92,3 +98,6 @@ $(function() {
         })
     }
 });
+
+
+

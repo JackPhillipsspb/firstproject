@@ -11,9 +11,6 @@
 									<h3>Контакты</h3>
 									<p>Отправьте мне сообщения по форме ниже или свяжитесь со мной через социальные сети.</p>
 <div id="results"></div>
-{% if form_ok %}
- <div id="results"></div>
-{% endif %}
 									<form method="post" id="post-form">{% csrf_token %}
 										<div class="row uniform">
 											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Имя" required/></div>

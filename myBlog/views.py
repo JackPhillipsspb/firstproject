@@ -2,8 +2,8 @@ from django.http import HttpResponse
 import json
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post, zForm
-from .forms import PostForm
+from .models import Post, zForm, SubscribeForm
+from .forms import PostForm, SubscribeForm
 from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.core.mail import send_mail
@@ -47,7 +47,30 @@ def post_edit(request, pk):
 
 @csrf_protect
 def subscribe_post(request):
-	pass
+    if request.method == 'POST':
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        response_data = {}
+        a = SubscribeForm.objects.create(
+            name=name,
+            email=email,
+        )
+        a.save()
+        response_data['form_ok'] = 1
+        response_data['result'] = "Сообщение отправлено!"
+        #send_mail(subject, " %s %s" % (message, email), 'robot@foodandfilm.info', ['admin@icont-trade.com'], fail_silently=False)
+        #response_data.update(csrf(request))
+        return HttpResponse(
+            json.dumps(response_data),
+            content_type="application/json"
+        )
+
+
+    else:
+        return HttpResponse(
+            json.dumps({"nothing to see": "this isn`t happening"}),
+            content_type="application/json"
+        )
 
 @csrf_protect
 def create_post(request):
