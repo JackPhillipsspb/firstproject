@@ -2,8 +2,11 @@
 
 {% block content %}
 {% for post in posts %}
-	<p>published date: {{ post.published_date }}</p>
+	<p>published date: {{ post.published_date }} Author {{ post.author }}</p>
 	<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-	<p>{{ post.text|linebreaksbr }}</p>
+	{% if user.is_authenticated and post.author  ==  user %}
+		<a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
+	{% endif %}
+	<p>{{ post.text|linebreaksbr|safe }}</p>
 {% endfor %}
 {% endblock %}
