@@ -6,45 +6,4 @@
 	<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
 	<p>{{ post.text|linebreaksbr }}</p>
 {% endfor %}
-<section id="six">
-								<div class="container">
-									<h3>Контакты</h3>
-									<p>Отправьте мне сообщения по форме ниже или свяжитесь со мной через социальные сети.</p>
-<div id="results"></div>
-									<form method="post" id="post-form">{% csrf_token %}
-										<div class="row uniform">
-											<div class="6u 12u(xsmall)"><input type="text" name="name" id="name" placeholder="Имя" required/></div>
-											<div class="6u 12u(xsmall)"><input type="email" name="email" id="email" placeholder="Email" required/></div>
-										</div>
-										<div class="row uniform">
-												<div class="12u">
-													<div class="select-wrapper">
-														<select name="subject" id="subject" style="font-style:Italic;color:#aaaaaa;" required aria-required="true">
-															<option value="">- Тема -</option>
-															<option value="Вопросы">Вопросы</option>
-															<option value="Сотрудничество">Сотрудничество</option>
-															<option value="Нашел ошибку">Нашел ошибку</option>
-															<option value="Люблю общаться">Люблю общаться</option>
-														</select>
-													</div>
-												</div>
-										</div>
-										<div class="row uniform">
-											<div class="12u"><textarea maxlength="2056" name="message" id="message" placeholder="Сообщение" rows="6" required aria-required="true"></textarea></div>
-										</div>
-										<div class="row uniform">
-											<div class="12u">
-												<ul class="actions">
-													<li><input type="submit" class="special" value="Отправить" /></li>
-													<li><input type="reset" value="Отчистить" /></li>
-													<li><input type="checkbox" id="demo-human" name="demo-human" required aria-required="true">
-													<label for="demo-human">Я человек, а не робот</label></li>
-												</ul>
-											</div>
-
-										</div>
-									</form>
-								</div>
-							</section>
-
 {% endblock %}

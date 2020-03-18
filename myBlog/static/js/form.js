@@ -1,4 +1,5 @@
 // This function gets cookie with a given name
+$(document).ready(function() {
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
@@ -48,56 +49,26 @@ $.ajaxSetup({
 });
 
 $(function() {
-    $('#post-form').on('submit', function(event){
+    $('$subscribe-form').on('submit', function(event) {
         event.preventDefault();
-        create_post();
+        subscribe_add();
     });
-    function create_post() {
+    function subscribe_add() {
         var name = $('#name').val()
-        var email = $('#email').val()
-        var subject = $('#subject').val()
-        var message = $('#message').val()
+        var email = $('email').val()
         $.ajax({
-            url: 'create_post/',
-            type: "POST",
-            data: { 'name': name, 'email': email, 'subject': subject, 'message': message },
+            url: 'subscribe_add/',
+            type: 'POST',
+            data: {'name': name, 'email': email},
             success: function(json) {
-                $('#name').val('')
-                $('#email').val('')
-                $('#subject').val('')
-                $('#message').val('');
-                $('#results').html("<b>"+json.result+"</b>");
+                $('#name').val()
+                $('#email').val()
+                $('#results').html("<b>"+json.results+"</b>");
             },
-            error: function(xhr,errmsg,err) {
-                $('#results').html("<div>Произошла ошибка: "+errmsg+"</div>");
+            error: function(xhr, errmsg, err) {
+                $('$results').html("<b>Произошла ошибка"+errmsg+"</b>");
             }
         });
     };
-
-$(function() {
-    $('#subscribe-form').on('submit', function(event){
-        event.preventDefault();
-        create_post();
-    });
-
-    function subscribe() {
-        var name = $('#name').val()
-        var email = $('#email').val()
-        $.ajax({
-            url: 'subscribe_post/',
-            type: "POST",
-            data: {'name': name, 'email': email},
-            success: function(json) {
-                $('#name').val('')
-                $('#email').val('')
-                $('#results').html("<b>"+json.result+"</b>");
-            },
-            error: function(xhr, errmsr, err) {
-                $('#results').html("<div>Произошла ошибка!"+errmsg+"</div>");
-            }
-        })
-    }
 });
-
-
-
+});

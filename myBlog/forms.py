@@ -13,3 +13,5 @@ class SubscribeForm(forms.ModelForm):
 	class Meta:
 		model = SubscribeForm
 		fields = ('name', 'email',)
+
+
