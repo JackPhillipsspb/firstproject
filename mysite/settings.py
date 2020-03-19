@@ -133,6 +133,7 @@ CKEDITOR_CONFIGS = {
     'toolbar': 'None'
     },
 }
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Настройки почтового сервера
 EMAIL_HOST = 'smtp.spaceweb.ru'
