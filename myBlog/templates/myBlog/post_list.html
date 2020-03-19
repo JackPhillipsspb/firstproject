@@ -10,9 +10,9 @@
 	{% autoescape off %}
 		<p>{{ post.description }}</p>
 	{% endautoescape %}
-	<p style="font-size: 12px; color: grey;">Опубликовано: {{ post.published_date }} Автор {{ post.author }}<br>
-	{% if post.update_date %}
-		Последнее обновление {{ post.update_date }}
+	<p style="font-size: 12px; color: grey;">Опубликовано: {{ post.create_date }} Автор {{ post.author }}<br>
+	{% if post.published_date %}
+		Последнее обновление {{ post.published_date }}
 	{% endif %}
 	</p>
 {% endfor %}

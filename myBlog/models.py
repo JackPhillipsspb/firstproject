@@ -10,10 +10,10 @@ class Post(models.Model):
 	text = RichTextUploadingField(verbose_name="Текст")
 	create_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	update_date = models.DateTimeField(blank=True, null=True)
+	
 
 	def publish(self):
-		self.update_date = timezone.now()
+		self.published_date = timezone.now()
 		self.save()
 
 	class Meta():

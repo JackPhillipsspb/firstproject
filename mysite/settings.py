@@ -130,7 +130,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_CONFIGS = {
     'default': {
-    'toolbar': 'None'
+    'toolbar': 'full'
+    
     },
 }
 CKEDITOR_IMAGE_BACKEND = 'pillow'
