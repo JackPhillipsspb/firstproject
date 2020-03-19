@@ -7,6 +7,8 @@
 	{% if user.is_authenticated and post.author  ==  user %}
 		<a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
 	{% endif %}
-	<p>{{ post.text|linebreaksbr|safe }}</p>
+	{% autoescape off %}
+		<p>{{ post.description }}</p>
+		{% endautoescape %}
 {% endfor %}
 {% endblock %}

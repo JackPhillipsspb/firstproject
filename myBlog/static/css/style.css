@@ -15,9 +15,11 @@ body {
 .page_header {
 	background-color: #ff9400;
 	margin-top: 0;
-	margin-left: 0;
+	margin-left: 0; 
 	padding: 20px 20px 20px 40px;
+	/* margin: auto; */
 	color: #000;
+
 }
 .post {
 	padding-left: 20px;
