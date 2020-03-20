@@ -9,6 +9,7 @@ urlpatterns = [
 	path('post/<int:pk>/', views.post_detail, name='post_detail'),
 	path('post_new/', views.post_new, name='post_new'),
 	path('post/edit/<int:pk>', views.post_edit, name='post_edit'),
+	path('post/delete/<int:pk>', views.post_delete, name='post_delete'),
 ]
 
 # serving media files only on debug mode

@@ -4,9 +4,6 @@
 {% for post in posts %}
 	
 	<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-	{% if user.is_authenticated and post.author  ==  user %}
-		<a href="{% url 'post_edit' pk=post.pk %}">Edit</a>
-	{% endif %}
 	{% autoescape off %}
 		<p>{{ post.description }}</p>
 	{% endautoescape %}
@@ -14,6 +11,11 @@
 	{% if post.published_date %}
 		Последнее обновление {{ post.published_date }}
 	{% endif %}
+	{% if user.is_authenticated and post.author  ==  user %}
+		<a href="{% url 'post_edit' pk=post.pk %}"><img src="media/icons/pencil.svg" alt="" width="12" height="12" title="Редактировать"></a>
+		<a href="{% url 'post_delete' pk=post.pk %}"><img src="media/icons/trash.svg" alt="" width="12" height="12" title="Удалить"></a>
+	{% endif %}
+	
 	</p>
 {% endfor %}
 {% endblock %}

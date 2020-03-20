@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 import json
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
@@ -44,3 +44,15 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'myBlog/post_edit.html', {'form': form})
+
+
+def post_delete(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	post.delete()
+	return HttpResponseRedirect("/")
+	#try:
+    #    post = Post.objects.get(id=pk)
+    #    post.delete()
+    #    return HttpResponseRedirect("/")
+    #except Post.DoesNotExist:
+    #    return HttpResponseNotFound("<h2>Post not found</h2>")
