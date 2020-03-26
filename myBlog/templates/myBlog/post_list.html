@@ -10,6 +10,8 @@
 	<p style="font-size: 12px; color: grey;">Опубликовано: {{ post.create_date }} Автор {{ post.author }}<br>
 	{% if post.published_date %}
 		Последнее обновление {{ post.published_date }}
+	{% else %}
+		Пост не обновлялся
 	{% endif %}
 	{% if user.is_authenticated and post.author  ==  user %}
 		<a href="{% url 'post_edit' pk=post.pk %}"><img src="media/icons/pencil.svg" alt="" width="12" height="12" title="Редактировать"></a>
